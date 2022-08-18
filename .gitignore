@@ -1,0 +1,6 @@
+.vscode/
+rpi-weather-info/__pycache__/
+rpi-weather-info/electricity/__pycache__/
+rpi-weather-info/task/__pycache__/
+rpi-weather-info/weather/__pycache__/
+rpi-weather-info/.env
