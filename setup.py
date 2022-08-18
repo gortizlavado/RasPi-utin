@@ -12,7 +12,7 @@ with open('LICENSE') as f:
 setup(
     name='rpi-weather',
     version='0.0.1',
-    description='Put some description',
+    description='Weather forecast e-Paper Display',
     long_description=readme,
     author='Gonzalo Ortiz',
     author_email='gonzalo.ortiz.lavado@protonmail.com',

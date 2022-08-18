@@ -12,7 +12,7 @@ import urllib3
 import logging
 import sys
 
-import time
+#import time
 
 logging.basicConfig(level=logging.INFO)
 
@@ -148,14 +148,19 @@ try:
 
         epd.display(epd.getbuffer(himage))
         logging.info("printed in display!")
-        time.sleep(20)
+        
+        # 2. If the board you have is printed with Rev2.1, the module enters low-ultra mode after Module_Exit(). (as we test, the current is about 0 in this mode);
+        #TODO test in r-pi
+        epd7in5_V2.epdconfig.module_exit()
 
-        logging.info("Clear...")
-        epd.init()
-        epd.Clear()
+        #time.sleep(20)
 
-        logging.info("Goto Sleep...")
-        epd.sleep()
+        #logging.info("Clear...")
+        #epd.init()
+        #epd.Clear()
+
+        #logging.info("Goto Sleep...")
+        #epd.sleep()
 
 
 except IOError as e:

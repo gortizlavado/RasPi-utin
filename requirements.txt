@@ -1,0 +1,6 @@
+python-dotenv==0.20.0
+Pillow~=9.0.1
+RPi.GPIO==0.7.1
+simplejson~=3.17.6
+spidev==3.5
+urllib3~=1.26.5
