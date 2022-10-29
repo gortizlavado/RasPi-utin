@@ -14,3 +14,6 @@ TOKEN = os.getenv('TOKEN_TASK')
 APP_ID = os.getenv('APP_ID')
 LATITUDE = os.getenv('LAT')
 LONGITUDE = os.getenv('LON')
+
+# ELECTRICITY
+REQUEST_NEXT_DAY = os.getenv('REQUEST_NEXT_DAY')
