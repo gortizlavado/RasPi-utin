@@ -87,6 +87,7 @@ try:
                 tomorrow = fetch_date_tomorrow()
                 electricity_data = run_electricity(http, filter=hour_now)
                 more_electricity_data = run_electricity(http, date=tomorrow, size=6)
+                epd = init_epd()
                 run_epd(d=Display(Merge(electricity_data, more_electricity_data), task_data, forecast_data, weather_data))
                 data[fetch_date_now()] = True
                 data[tomorrow] = False

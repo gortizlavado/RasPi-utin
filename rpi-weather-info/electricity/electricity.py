@@ -22,5 +22,5 @@ class Electricity:
             logging.info("The prices are filtered by " + self.filter_hour + " :" + str(data) + ". Length: " + str(len(data)))
         if self.response_size is not None :
             data = resize_data(data, self.response_size)
-            logging.info("The prices are resized by " + self.response_size + " :" + str(data) + ". Length: " + str(len(data)))    
+            logging.info("The prices are resized by " + str(self.response_size) + " :" + str(data) + ". Length: " + str(len(data)))    
         return data
