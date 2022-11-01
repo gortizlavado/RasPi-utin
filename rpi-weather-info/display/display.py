@@ -14,7 +14,7 @@ class Display:
     def transform_data_into_image(self): 
         self.himage = Image.new('1', (800, 480), 255)  # 255: clear the frame
         draw = ImageDraw.Draw(self.himage)
-        self.draw_skeleton(draw=draw)
+        self.draw_skeleton(draw)
         logging.info("drawed skeleton!")
 
         # load fonts
@@ -79,7 +79,7 @@ class Display:
         # end of right content ---------------------------------------------------------------
         logging.info("drawed data!")
 
-    def draw_skeleton(draw):
+    def draw_skeleton(self, draw):
         # Draw one rectangle for weather data
         draw.rectangle([(0, 0),(479, 120)], outline = 0)
         # And another for the tasks
@@ -87,7 +87,7 @@ class Display:
         # And a third for the electric
         draw.rectangle([(241, 320),(479, 799)], outline = 0)
 
-    def loop_tasks(draw, data, name, value_y, value_x):
+    def loop_tasks(self, draw, data, name, value_y, value_x):
         y = value_y
         x = value_x
         draw.text((60, y), name, font = font_size_35(), fill = 0)
@@ -98,7 +98,7 @@ class Display:
         y = y + 40
         return y
 
-    def load_weather_icon_and_resize(name):
+    def load_weather_icon_and_resize(self, name):
         icon_name = name.replace("n", "d")
         weather_icon = Image.open(picdir + icon_name + '.png')
         icon_resized = weather_icon.resize(size=(50, 50))

@@ -16,12 +16,14 @@ import time
 
 logging.basicConfig(level=logging.INFO)
 
-def run_electricity(http, date, filter):
+def run_electricity(http, date=None, filter=None, size=None):
     e = Electricity(http)
     if date is not None :
         e.now = date
     if filter is not None :
         e.filter_hour = filter
+    if size is not None :
+        e.response_size = size
     return e.request_price()
 
 def run_task(http):
@@ -84,8 +86,8 @@ try:
                 logging.info("time to ask more data from tomorrow")
                 tomorrow = fetch_date_tomorrow()
                 electricity_data = run_electricity(http, filter=hour_now)
-                more_electricity_data = run_electricity(http, date = tomorrow, filter=hour_now)
-                run_epd(d=Display(Merge(electricity_data, more_electricity_data), electricity_data, task_data, forecast_data, weather_data))
+                more_electricity_data = run_electricity(http, date=tomorrow, size=6)
+                run_epd(d=Display(Merge(electricity_data, more_electricity_data), task_data, forecast_data, weather_data))
                 data[fetch_date_now()] = True
                 data[tomorrow] = False
             time.sleep(60)

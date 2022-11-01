@@ -42,14 +42,18 @@ def parse_response(electricity):
 
 def filter_data_by_time(electricity_data, hour_now) :
 
-    #TODO use this? case a break in the condition? 
-    #electricity_data.pop('lowest')
-    #electricity_data.pop('highest')
-
     data = dict()
     for electricity in electricity_data:
-        key = electricity[:-1]
-        if (hour_now <= key) :
+        key = electricity[6:8]
+        if (key.isnumeric() and hour_now <= key) :
             data.setdefault(key + 'h', electricity_data.get(electricity))
+
+    return data
+
+def resize_data(electricity_data, size) :
+    data = dict()
+    for index, (key, value) in enumerate(electricity_data.items()):
+        if (index < size) :
+            data.setdefault(key, value)
 
     return data
