@@ -12,7 +12,8 @@ class Display:
         self.weather = weather
 
     def transform_data_into_image(self): 
-        self.himage = Image.new('1', (800, 480), 255)  # 255: clear the frame
+        himage = Image.new('1', (800, 480), 255)  # 255: clear the frame
+        self.himage = himage.transpose(Image.ROTATE_90)
         draw = ImageDraw.Draw(self.himage)
         self.draw_skeleton(draw)
         logging.info("drawed skeleton!")
