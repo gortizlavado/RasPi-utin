@@ -5,7 +5,7 @@ from electricity.electricity import Electricity
 from task.task import Task
 from weather.forecast import Forecast
 from weather.weather import Weather
-from .display import Display
+from display.display import Display
 from settings import REQUEST_NEXT_DAY
 from lib import epd7in5_V2
 from util.time_helper import *
