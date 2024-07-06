@@ -1,4 +1,4 @@
-API_URL = 'https://api.todoist.com/rest/v1/tasks'
+API_URL = 'https://api.todoist.com/rest/v2/tasks'
 
 FILTER_INIT_CHAR = '?'
 FILTER_CONTINUE_CHAR = '&'
