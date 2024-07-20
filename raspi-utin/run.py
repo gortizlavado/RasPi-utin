@@ -3,7 +3,7 @@
 
 #from lib import epd7in5_V2
 from settings import REQUEST_NEXT_DAY
-from rasputin import Rasputin
+from raspiutin import Raspiutin
 from util.time_helper import fetch_date_now
 from util.time_helper import fetch_hour_now
 from util.time_helper import fetch_date_tomorrow
@@ -35,8 +35,8 @@ try:
 
         # 1. Init EPD
         #epd = init_epd()
-        # 2. Create Rasputin
-        rpi = Rasputin()
+        # 2. Create Raspiutin
+        rpi = Raspiutin()
         rpi.start()
         # 3. Print into EPD
         #refresh(epd, rpi.provide_himage())

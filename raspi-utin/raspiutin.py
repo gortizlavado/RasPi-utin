@@ -38,7 +38,7 @@ def merge(dict1, dict2):
         dict1[i]=dict2[i]
     return dict1    
 
-class Rasputin:
+class Raspiutin:
 
     def __init__(self):
         self.http = urllib3.PoolManager()

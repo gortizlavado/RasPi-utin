@@ -10,7 +10,7 @@ with open('LICENSE') as f:
     license = f.read()
 
 setup(
-    name='rpi-weather',
+    name='Raspi-utin',
     version='0.0.1',
     description='Weather forecast e-Paper Display',
     long_description=readme,
