@@ -16,7 +16,7 @@ setup(
     long_description=readme,
     author='Gonzalo Ortiz',
     author_email='gonzalo.ortiz.lavado@protonmail.com',
-    url='https://github.com/gortizlavado/rpi-weather',
+    url='https://github.com/gortizlavado/RasPi-utin.git',
     license=license,
     packages=find_packages(exclude=('tests', 'docs'))
 )
