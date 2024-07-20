@@ -1,4 +1,4 @@
-from datetime import datetime
+from util.time_helper import *
 from settings import PROJECT_ID
 from settings import TOKEN
 import task.constants as c
@@ -15,7 +15,7 @@ def do_request(http):
 
 def parse_response(task):
     tasks = task.response
-    date_now = datetime.now().date()
+    date_now = fetch_date_now()
 
     overdue = set()
     futuredue = set()
@@ -39,7 +39,3 @@ def parse_response(task):
         data['futuredue'] = futuredue
     
     return data
-
-def string_to_date(str_date):
-    datetimeParsed = datetime.strptime(str_date, "%Y-%m-%d")
-    return datetimeParsed.date()

@@ -1,4 +1,4 @@
-from datetime import datetime
+from util.time_helper import *
 from settings import APP_ID
 from settings import LATITUDE
 from settings import LONGITUDE
@@ -20,7 +20,7 @@ def do_request(http, url, filter):
 
 def parse_response_forecast(forecast):
     forecasts = forecast.response["list"]
-    now = datetime.now()
+    now = fetch_datetime_now()
     data = dict()
     
     for forecast in forecasts:
@@ -33,22 +33,16 @@ def parse_response_forecast(forecast):
     return data
 
 def parse_response_weather(forecast):
-    now = datetime.now()
+    now = fetch_datetime_now()
     data = dict()
 
     data["temp"] = str(forecast.response["main"]["temp"]) + c.CELSIUS_UNIT
     data["feels_like"] = str(forecast.response["main"]["feels_like"]) + c.CELSIUS_UNIT
     data["humidity"] = str(forecast.response["main"]["humidity"]) + c.PERCENT_SYMBOL
     data["icon"] = forecast.response["weather"][0]["icon"]
-    dt = timestampToDate(forecast.response["dt"])
+    dt = timestamp_to_date(forecast.response["dt"])
     data["date"] = dt.strftime("%d %B %Y")
     data["day"] = dt.strftime("%A")
     data["time"] = now.strftime("%H:%M")
 
-    return data    
-
-def string_to_date_time(strDatetime):
-    return datetime.strptime(strDatetime, "%Y-%m-%d %H:%M:%f")
-
-def timestampToDate(timestamp):
-    return datetime.fromtimestamp(timestamp, tz=None)
+    return data
